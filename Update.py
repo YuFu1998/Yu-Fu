@@ -236,7 +236,7 @@ def output_graph(FewList, AverageList, ManyList, numberOfNodes, probability_valu
     ExpectedInfection_average = []
     ExpectedInfection_manyAndfew = []
     i = 0
-    message = int(numberOfNodes) + 50
+    message = int(numberOfNodes) *4
     # when there are 10 nodes the number of messages is 40, so quadruple here
     while i <= message:
         messages.append(i)
@@ -278,6 +278,9 @@ def output_graph(FewList, AverageList, ManyList, numberOfNodes, probability_valu
         y_ticks = np.arange(0.0, max(ExpectedInfection_manyAndfew) + 0.5, 5)
     else:
         y_ticks = np.arange(0.0, max(ExpectedInfection_manyAndfew) + 0.5, 10)
+
+    x_ticks = np.arange(0, message + 2, int(message/10))
+    y_ticks = np.arange(0.0, max(ExpectedInfection_manyAndfew) + 0.5, int(max(ExpectedInfection_manyAndfew) + 0.5)/10)
     plt.xticks(x_ticks)
     plt.yticks(y_ticks)
 
